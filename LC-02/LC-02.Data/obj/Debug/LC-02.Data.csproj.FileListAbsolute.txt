@@ -1,0 +1,15 @@
+E:\GitHub\LC-02\LC-02.Data\bin\Debug\LC-02.Data.dll.config
+E:\GitHub\LC-02\LC-02.Data\bin\Debug\LC-02.Data.dll
+E:\GitHub\LC-02\LC-02.Data\bin\Debug\LC-02.Data.pdb
+E:\GitHub\LC-02\LC-02.Data\bin\Debug\EntityFramework.dll
+E:\GitHub\LC-02\LC-02.Data\bin\Debug\EntityFramework.SqlServer.dll
+E:\GitHub\LC-02\LC-02.Data\bin\Debug\Omu.ValueInjecter.dll
+E:\GitHub\LC-02\LC-02.Data\bin\Debug\SimpleInjector.dll
+E:\GitHub\LC-02\LC-02.Data\bin\Debug\EntityFramework.xml
+E:\GitHub\LC-02\LC-02.Data\bin\Debug\EntityFramework.SqlServer.xml
+E:\GitHub\LC-02\LC-02.Data\bin\Debug\Omu.ValueInjecter.pdb
+E:\GitHub\LC-02\LC-02.Data\bin\Debug\Omu.ValueInjecter.xml
+E:\GitHub\LC-02\LC-02.Data\bin\Debug\SimpleInjector.xml
+E:\GitHub\LC-02\LC-02.Data\obj\Debug\LC-02.Data.dll
+E:\GitHub\LC-02\LC-02.Data\obj\Debug\LC-02.Data.pdb
+E:\GitHub\LC-02\LC-02.Data\obj\Debug\LC-02.Data.csprojResolveAssemblyReference.cache
