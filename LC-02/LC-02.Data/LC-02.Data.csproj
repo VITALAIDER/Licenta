@@ -64,10 +64,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Professor.cs" />
-    <Compile Include="Entities\Project.cs" />
+    <Compile Include="Entities\Comment.cs" />
+    <Compile Include="Entities\User.cs" />
+    <Compile Include="Entities\History.cs" />
     <Compile Include="Entities\ProjectContext.cs" />
-    <Compile Include="Entities\Student.cs" />
+    <Compile Include="Entities\Event.cs" />
     <Compile Include="Infrastructure\DatabaseFactory.cs" />
     <Compile Include="Infrastructure\Disponsible.cs" />
     <Compile Include="Infrastructure\IDatabaseFactory.cs" />

@@ -10,8 +10,9 @@ namespace LC_02.Data.Entities
         {
             Database.SetInitializer<ProjectContext>(null);
         }
-        public DbSet<Data.Entities.Professor> Professors { get; set; }
-        public DbSet<Student> Students { get; set; }
-        public DbSet<Project> Projects { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Event> Events { get; set; }
+        public DbSet<History> History { get; set; }
+        public DbSet<Comment> Comments { get; set; }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using Autoconnect.Data.Infrastructure;
 using LC_02.Data.Infrastructure;
-using LC_02.Services.Students;
+using LC_02.Services.Events;
 using SimpleInjector;
 
 namespace LC_02.Services.Infrastucture
@@ -16,7 +16,7 @@ namespace LC_02.Services.Infrastucture
             //register generic repository
             container.Register(typeof(IRepository<>), typeof(Repository<>), lifeStyle);
             //services
-            container.Register<IStudentService, StudentService>(lifeStyle);
+            container.Register<IEventService, EventService>(lifeStyle);
             
         }
     }
