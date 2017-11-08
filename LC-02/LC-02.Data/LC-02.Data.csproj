@@ -76,6 +76,19 @@
     <Compile Include="Infrastructure\IUnitOfWork.cs" />
     <Compile Include="Infrastructure\Repository.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
+    <Compile Include="Migrations\201711081641063_ChangeDataBase.cs" />
+    <Compile Include="Migrations\201711081641063_ChangeDataBase.Designer.cs">
+      <DependentUpon>201711081641063_ChangeDataBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711081700455_ChangeDataBase1.cs" />
+    <Compile Include="Migrations\201711081700455_ChangeDataBase1.Designer.cs">
+      <DependentUpon>201711081700455_ChangeDataBase1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711081703434_ChangeDataBase2.cs" />
+    <Compile Include="Migrations\201711081703434_ChangeDataBase2.Designer.cs">
+      <DependentUpon>201711081703434_ChangeDataBase2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -84,6 +97,17 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Context\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201711081641063_ChangeDataBase.resx">
+      <DependentUpon>201711081641063_ChangeDataBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711081700455_ChangeDataBase1.resx">
+      <DependentUpon>201711081700455_ChangeDataBase1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711081703434_ChangeDataBase2.resx">
+      <DependentUpon>201711081703434_ChangeDataBase2.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
