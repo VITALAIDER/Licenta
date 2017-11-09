@@ -1,6 +1,7 @@
 ﻿using Autoconnect.Data.Infrastructure;
 using LC_02.Data.Infrastructure;
 using LC_02.Services.Events;
+using LC_02.Services.Users;
 using SimpleInjector;
 
 namespace LC_02.Services.Infrastucture
@@ -17,7 +18,8 @@ namespace LC_02.Services.Infrastucture
             container.Register(typeof(IRepository<>), typeof(Repository<>), lifeStyle);
             //services
             container.Register<IEventService, EventService>(lifeStyle);
-            
+            container.Register<IUserService, UserService>(lifeStyle);
+
         }
     }
 }

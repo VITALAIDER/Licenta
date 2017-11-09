@@ -58,11 +58,13 @@
     <Compile Include="Comment\CommentDto.cs" />
     <Compile Include="History\HistoryDto.cs" />
     <Compile Include="Infrastucture\SimpleInjectorInitializer.cs" />
+    <Compile Include="Users\IUserService.cs" />
     <Compile Include="Users\UserDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Events\IEventService.cs" />
     <Compile Include="Events\EventDto.cs" />
     <Compile Include="Events\EventService.cs" />
+    <Compile Include="Users\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
