@@ -5,5 +5,6 @@ namespace LC_02.Services.Users
     public interface IUserService
     {
         UserDto AddNewUser(UserDto userDto);
+        UserDto LoginStudent(string username, string password);
     }
 }

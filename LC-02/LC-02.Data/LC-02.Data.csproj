@@ -88,6 +88,18 @@
     <Compile Include="Migrations\201711081703434_ChangeDataBase2.Designer.cs">
       <DependentUpon>201711081703434_ChangeDataBase2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711131643121_addPassword.cs" />
+    <Compile Include="Migrations\201711131643121_addPassword.Designer.cs">
+      <DependentUpon>201711131643121_addPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711131759029_limitsOnSize.cs" />
+    <Compile Include="Migrations\201711131759029_limitsOnSize.Designer.cs">
+      <DependentUpon>201711131759029_limitsOnSize.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711131759355_uniqueOnUserName.cs" />
+    <Compile Include="Migrations\201711131759355_uniqueOnUserName.Designer.cs">
+      <DependentUpon>201711131759355_uniqueOnUserName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -107,6 +119,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711081703434_ChangeDataBase2.resx">
       <DependentUpon>201711081703434_ChangeDataBase2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711131643121_addPassword.resx">
+      <DependentUpon>201711131643121_addPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711131759029_limitsOnSize.resx">
+      <DependentUpon>201711131759029_limitsOnSize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711131759355_uniqueOnUserName.resx">
+      <DependentUpon>201711131759355_uniqueOnUserName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

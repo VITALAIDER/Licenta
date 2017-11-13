@@ -25,10 +25,12 @@ E:\GitHub\Licenta\Licenta\LC-02\LC-02.Data\bin\Debug\EntityFramework.SqlServer.x
 E:\GitHub\Licenta\Licenta\LC-02\LC-02.Data\bin\Debug\Omu.ValueInjecter.pdb
 E:\GitHub\Licenta\Licenta\LC-02\LC-02.Data\bin\Debug\Omu.ValueInjecter.xml
 E:\GitHub\Licenta\Licenta\LC-02\LC-02.Data\bin\Debug\SimpleInjector.xml
-E:\GitHub\Licenta\Licenta\LC-02\LC-02.Data\obj\Debug\LC-02.Data.csprojResolveAssemblyReference.cache
 E:\GitHub\Licenta\Licenta\LC-02\LC-02.Data\obj\Debug\LC-02.Data.dll
 E:\GitHub\Licenta\Licenta\LC-02\LC-02.Data\obj\Debug\LC-02.Data.pdb
 E:\GitHub\Licenta\Licenta\LC-02\LC-02.Data\obj\Debug\LC_02.Data.Migrations.ChangeDataBase.resources
 E:\GitHub\Licenta\Licenta\LC-02\LC-02.Data\obj\Debug\LC-02.Data.csproj.GenerateResource.Cache
 E:\GitHub\Licenta\Licenta\LC-02\LC-02.Data\obj\Debug\LC_02.Data.Migrations.ChangeDataBase1.resources
 E:\GitHub\Licenta\Licenta\LC-02\LC-02.Data\obj\Debug\LC_02.Data.Migrations.ChangeDataBase2.resources
+E:\GitHub\Licenta\Licenta\LC-02\LC-02.Data\obj\Debug\LC_02.Data.Migrations.addPassword.resources
+E:\GitHub\Licenta\Licenta\LC-02\LC-02.Data\obj\Debug\LC_02.Data.Migrations.limitsOnSize.resources
+E:\GitHub\Licenta\Licenta\LC-02\LC-02.Data\obj\Debug\LC_02.Data.Migrations.uniqueOnUserName.resources
