@@ -13,25 +13,22 @@ namespace LC_02.Data.Entities
     public enum EventCategoryType
     {
         Diverse=0,
-        Concert,
-        Teatru,
-        Caritate,
-        Targ,
-        Expozitie,
+        Charity,
+        Concerts,
+        Outside,
+        Sport,
         Show,
-        Divertisment
     }
     public enum PlaceCategoryType
     {
         Restaurant = 0,
-        Pizzerie,
+        Pizzerias,
         Club,
-        Bar,
         Pub,
         Cazino,
         Beauty,
-        InstitutieDeInvatamant,
-        Muzeu,
+        EducationalInstitution,
+        Museum,
         Diverse
     }
     public class Event
