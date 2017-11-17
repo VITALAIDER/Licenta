@@ -100,6 +100,10 @@
     <Compile Include="Migrations\201711131759355_uniqueOnUserName.Designer.cs">
       <DependentUpon>201711131759355_uniqueOnUserName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711161703315_PlaceCategoryType.cs" />
+    <Compile Include="Migrations\201711161703315_PlaceCategoryType.Designer.cs">
+      <DependentUpon>201711161703315_PlaceCategoryType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -128,6 +132,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711131759355_uniqueOnUserName.resx">
       <DependentUpon>201711131759355_uniqueOnUserName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711161703315_PlaceCategoryType.resx">
+      <DependentUpon>201711161703315_PlaceCategoryType.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

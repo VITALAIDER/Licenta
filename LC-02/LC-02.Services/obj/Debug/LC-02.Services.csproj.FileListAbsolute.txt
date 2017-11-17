@@ -13,9 +13,6 @@ E:\GitHub\LC-02\LC-02.Services\bin\Debug\EntityFramework.xml
 E:\GitHub\LC-02\LC-02.Services\obj\Debug\LC-02.Services.csprojResolveAssemblyReference.cache
 E:\GitHub\LC-02\LC-02.Services\obj\Debug\LC-02.Services.dll
 E:\GitHub\LC-02\LC-02.Services\obj\Debug\LC-02.Services.pdb
-E:\GitHub\Licenta\Licenta\LC-02\LC-02.Services\obj\Debug\LC-02.Services.csprojResolveAssemblyReference.cache
-E:\GitHub\Licenta\Licenta\LC-02\LC-02.Services\obj\Debug\LC-02.Services.dll
-E:\GitHub\Licenta\Licenta\LC-02\LC-02.Services\obj\Debug\LC-02.Services.pdb
 E:\GitHub\Licenta\Licenta\LC-02\LC-02.Services\bin\Debug\LC-02.Services.dll.config
 E:\GitHub\Licenta\Licenta\LC-02\LC-02.Services\bin\Debug\LC-02.Services.dll
 E:\GitHub\Licenta\Licenta\LC-02\LC-02.Services\bin\Debug\LC-02.Services.pdb
@@ -28,3 +25,6 @@ E:\GitHub\Licenta\Licenta\LC-02\LC-02.Services\bin\Debug\Omu.ValueInjecter.pdb
 E:\GitHub\Licenta\Licenta\LC-02\LC-02.Services\bin\Debug\Omu.ValueInjecter.xml
 E:\GitHub\Licenta\Licenta\LC-02\LC-02.Services\bin\Debug\SimpleInjector.xml
 E:\GitHub\Licenta\Licenta\LC-02\LC-02.Services\bin\Debug\EntityFramework.xml
+E:\GitHub\Licenta\Licenta\LC-02\LC-02.Services\obj\Debug\LC-02.Services.csprojResolveAssemblyReference.cache
+E:\GitHub\Licenta\Licenta\LC-02\LC-02.Services\obj\Debug\LC-02.Services.dll
+E:\GitHub\Licenta\Licenta\LC-02\LC-02.Services\obj\Debug\LC-02.Services.pdb

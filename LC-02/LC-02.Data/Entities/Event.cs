@@ -38,7 +38,7 @@ namespace LC_02.Data.Entities
         public int UserId { get; set; }
         public EventType EventType { get; set; }
         public PlaceCategoryType EventCategoryName { get; set; }
-        public string PlaceCategoryName { get; set; }
+        public PlaceCategoryType PlaceCategoryName { get; set; }
         public string Title { get; set; }
         public string PhoneNumber { get; set; }
         public string Address { get; set; }
