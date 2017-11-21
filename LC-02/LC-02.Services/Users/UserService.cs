@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 using Autoconnect.Data.Infrastructure;
 using LC_02.Data.Entities;
 using LC_02.Data.Infrastructure;
+using LC_02.Services.Events;
 using LC_02.Services.Project;
 
 namespace LC_02.Services.Users
 {
-    
+
 
     public class UserService : IUserService
     {
@@ -23,34 +23,74 @@ namespace LC_02.Services.Users
             this.userRepository = userRepository;
             this.unitOfWork = unitOfWork;
         }
-        public UserDto AddNewUser(UserDto userDto)
-        {
-            var user = new User
-            {
-                Username = userDto.Username,
-                Email = userDto.Email
-            };
-            var md5Hash = MD5.Create();
-            user.Password = GetMd5Hash(md5Hash, userDto.Password);
-            user.PhoneNumber = userDto.PhoneNumber;
-            user.FirstName = userDto.FirstName;
-            user.LastName = userDto.LastName;
-            user.UserType = userDto.UserType;
-            userRepository.Add(user);
-            unitOfWork.Commit();
 
-            var addedUserDto = new UserDto
+        private EventDto EntityEventToDto(Event eventEntity)
+        {
+            //logic for EventDto
+            var eventDto = new EventDto();
+            eventDto.EventId = eventEntity.EventId;
+            eventDto.EventCategoryName = (EventCategoryType) eventEntity.EventCategoryName;
+            eventDto.EventType = (EventType) eventEntity.EventType;
+            if (eventEntity.StartEventDate != null) eventDto.StartEventDate = (DateTime)eventEntity.StartEventDate;
+            if (eventEntity.EndEventDate != null) eventDto.EndEventDate = (DateTime)eventEntity.EndEventDate;
+            eventDto.PhoneNumber = eventEntity.PhoneNumber;
+            eventDto.Address = eventEntity.Address;
+            eventDto.CreatedDate = eventEntity.CreatedDate;
+            eventDto.Description = eventEntity.Description;
+            eventDto.ImagePath = eventEntity.ImagePath;
+            eventDto.UserId = eventEntity.UserId;
+            if (eventEntity.Rank != null) eventDto.Rank = (float)eventEntity.Rank;
+            eventDto.Title = eventEntity.Title;
+
+            return eventDto;
+        }
+        private UserDto EntityToDto(User user)
+        {
+            var userDto = new UserDto
             {
+                UserId = user.UserId,
                 Username = user.Username,
                 Email = user.Email,
-                UserId = user.UserId,
                 PhoneNumber = user.PhoneNumber,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
-                UserType = user.UserType
+                UserType = user.UserType,
             };
+            userDto.Events = new List<EventDto>();
+            if (user.Events != null)
+            {
+                foreach (var eventEntity in user.Events)
+                {
+                    userDto.Events.Add(EntityEventToDto(eventEntity));
+                }
+            }
+            return userDto;
+        }
 
-            return addedUserDto;
+        private User DtoToEntity(UserDto userDto)
+        {
+            var userEntity = new User
+            {
+                UserId = userDto.UserId,
+                Username = userDto.Username,
+                Email = userDto.Email,
+                PhoneNumber = userDto.PhoneNumber,
+                FirstName = userDto.FirstName,
+                LastName = userDto.LastName,
+                UserType = userDto.UserType,
+            };
+            return userEntity;
+        }
+        public UserDto AddNewUser(UserDto userDto)
+        {
+            var user = DtoToEntity(userDto);
+            var md5Hash = MD5.Create();
+            user.Password = GetMd5Hash(md5Hash, userDto.Password);
+            userRepository.Add(user);
+
+            unitOfWork.Commit();
+
+            return EntityToDto(user);
         }
         public UserDto LoginStudent(string username, string password)
         {
@@ -58,19 +98,21 @@ namespace LC_02.Services.Users
 
             var user = userRepository.Query().FirstOrDefault(x => x.Username == username);
             if (user == null) return null;
+
             var passwordMatch = VerifyMd5Hash(md5Hash, password, user.Password);
             if (!passwordMatch) return null;
-            return new UserDto()
-            {
-                Username = user.Username,
-                Email = user.Email,
-                UserId = user.UserId,
-                PhoneNumber = user.PhoneNumber,
-                FirstName = user.FirstName,
-                LastName = user.LastName,
-                UserType = user.UserType
-            };
+
+            return EntityToDto(user);
+
         }
+
+        public UserDto GetUserByUserName(string username)
+        {
+            var user = userRepository.Query().FirstOrDefault(x => x.Username == username);
+            if (user == null) return null;
+            return EntityToDto(user);
+        }
+
         public static string GetMd5Hash(MD5 md5Hash, string input)
         {
 
@@ -92,7 +134,6 @@ namespace LC_02.Services.Users
             return sBuilder.ToString();
         }
 
-        // Verify a hash against a string.
         public static bool VerifyMd5Hash(MD5 md5Hash, string input, string hash)
         {
             // Hash the input.
@@ -103,6 +144,5 @@ namespace LC_02.Services.Users
 
             return 0 == comparer.Compare(hashOfInput, hash);
         }
-        //
     }
 }

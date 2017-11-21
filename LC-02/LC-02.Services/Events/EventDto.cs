@@ -6,12 +6,14 @@ namespace LC_02.Services.Events
 {
     public enum EventType
     {
-        Event = 0,
+        Nespecificat = 0,
+        Event,
         Place
     }
     public enum EventCategoryType
     {
-        Diverse = 0,
+        Nespecificat = 0,
+        Diverse,
         Concert,
         Teatru,
         Caritate,
@@ -22,7 +24,9 @@ namespace LC_02.Services.Events
     }
     public enum PlaceCategoryType
     {
-        Restaurant = 0,
+        Nespecificat = 0,
+        Diverse,
+        Restaurant,
         Pizzerie,
         Club,
         Bar,
@@ -30,14 +34,14 @@ namespace LC_02.Services.Events
         Cazino,
         Beauty,
         InstitutieDeInvatamant,
-        Muzeu,
-        Diverse
+        Muzeu
+
     }
     public class EventDto
     {
         public int EventId { get; set; }
         public EventType EventType { get; set; }
-        public PlaceCategoryType EventCategoryName { get; set; }
+        public EventCategoryType EventCategoryName { get; set; }
         public PlaceCategoryType PlaceCategoryName { get; set; }
         public string Title { get; set; }
         public string PhoneNumber { get; set; }
@@ -45,7 +49,7 @@ namespace LC_02.Services.Events
         public string ImagePath { get; set; }
         public string Description { get; set; }
         public float Rank { get; set; }
-        public int OrganizerId { get; set; }
+        public int UserId { get; set; }
 
         public DateTime CreatedDate { get; set; }
         public DateTime StartEventDate { get; set; }

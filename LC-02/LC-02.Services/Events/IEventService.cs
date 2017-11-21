@@ -1,7 +1,10 @@
-﻿namespace LC_02.Services.Events
+﻿using System.Collections.Generic;
+
+namespace LC_02.Services.Events
 {
     public interface IEventService
     {
-        bool AddNewEvent(EventDto eventDto);
+        EventDto AddNewEvent(EventDto eventDto);
+        List<EventDto> GetEventsByUserId(int userId);
     }
 }
