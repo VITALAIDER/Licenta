@@ -18,12 +18,13 @@ namespace LC_02.Services.Events
             this.eventRepository = eventRepository;
             this.unitOfWork = unitOfWork;
         }
-        private EventDto ConvertEventFromEventToDto(Event eventEntity)
+        private EventDto ConvertEventFromEntityToDto(Event eventEntity)
         {
             //logic for EventDto
             var eventDto = new EventDto();
             eventDto.EventId = eventEntity.EventId;
             eventDto.EventCategoryName = (EventCategoryType) eventEntity.EventCategoryName;
+            eventDto.PlaceCategoryName = (PlaceCategoryType)eventEntity.PlaceCategoryName;
             eventDto.EventType = (EventType) eventEntity.EventType;
             if (eventEntity.StartEventDate != null) eventDto.StartEventDate = (DateTime)eventEntity.StartEventDate;
             if (eventEntity.EndEventDate != null) eventDto.EndEventDate = (DateTime)eventEntity.EndEventDate;
@@ -42,11 +43,15 @@ namespace LC_02.Services.Events
         public Event ConvertEventFromDtoToEntity(EventDto eventDto)
         {
             var eventEntity = new Event();
-            eventEntity.EventId = eventEntity.EventId;
+
+            eventEntity.EventId = eventDto.EventId;
             eventEntity.EventCategoryName =  (int) eventDto.EventCategoryName;
+            eventEntity.PlaceCategoryName = (int) eventDto.PlaceCategoryName;
             eventEntity.EventType =  (int) eventDto.EventType;
-            eventEntity.StartEventDate = eventDto.StartEventDate;
-            eventEntity.EndEventDate = eventDto.EndEventDate;
+            if(eventDto.StartEventDate==DateTime.MinValue) eventEntity.StartEventDate= DateTime.Now;
+            else eventEntity.StartEventDate = eventDto.StartEventDate;
+            if (eventDto.EndEventDate == DateTime.MinValue) eventEntity.EndEventDate = DateTime.Now;
+            else eventEntity.EndEventDate = eventDto.EndEventDate;
             eventEntity.PhoneNumber = eventDto.PhoneNumber;
             eventEntity.Address = eventDto.Address;
             eventEntity.CreatedDate = eventDto.CreatedDate;
@@ -61,11 +66,11 @@ namespace LC_02.Services.Events
         public EventDto AddNewEvent(EventDto eventDto)
         {
             var eventEntity = ConvertEventFromDtoToEntity(eventDto);
-            eventEntity.EventType=(int) EventType.Event;
+            eventEntity.EventType=(int) eventDto.EventType;
             eventEntity.CreatedDate=DateTime.Now;
             eventRepository.Add(eventEntity);
             unitOfWork.Commit();
-            return ConvertEventFromEventToDto(eventEntity);
+            return ConvertEventFromEntityToDto(eventEntity);
         }
 
         public List<EventDto> GetEventsByUserId(int userId)
@@ -76,9 +81,39 @@ namespace LC_02.Services.Events
             var listEventsDto = new List<EventDto>();
             foreach (var eventEntity in listEvents)
             {
-                listEventsDto.Add(ConvertEventFromEventToDto(eventEntity));
+                listEventsDto.Add(ConvertEventFromEntityToDto(eventEntity));
             }
             return listEventsDto;
         }
+
+        public EventDto GetEventById(int eventId)
+        {
+            return ConvertEventFromEntityToDto(eventRepository.Query(x => x.EventId == eventId).FirstOrDefault());
+        }
+
+        public EventDto UpdateEvent(EventDto eventDto)
+        {
+            var eventEntity = ConvertEventFromDtoToEntity(eventDto);
+            var entity = eventRepository.Query(x => x.EventId == eventEntity.EventId).FirstOrDefault();
+            if (entity == null) return null;
+
+            if (entity.Title != eventEntity.Title) entity.Title = eventEntity.Title;
+            if (entity.Address != eventEntity.Address) entity.Address = eventEntity.Address;
+            if (entity.Description != eventEntity.Description) entity.Description = eventEntity.Description;
+            if (entity.ImagePath != eventEntity.ImagePath && eventEntity.ImagePath!=null) entity.ImagePath = eventEntity.ImagePath;
+            if (entity.PhoneNumber != eventEntity.PhoneNumber) entity.PhoneNumber = eventEntity.PhoneNumber;
+            if (entity.PlaceCategoryName != eventEntity.PlaceCategoryName) entity.PlaceCategoryName = eventEntity.PlaceCategoryName;
+            if (entity.EventCategoryName != eventEntity.EventCategoryName) entity.EventCategoryName = eventEntity.EventCategoryName;
+            
+            if (entity.EndEventDate != eventEntity.EndEventDate && eventEntity.EndEventDate!=DateTime.MinValue) entity.EndEventDate = eventEntity.EndEventDate;
+            if (entity.StartEventDate != eventEntity.StartEventDate && eventEntity.StartEventDate != DateTime.MinValue) entity.StartEventDate = eventEntity.StartEventDate;
+            
+            eventRepository.Update(entity);
+            unitOfWork.Commit();
+
+            return ConvertEventFromEntityToDto(entity);
+        }
+
+        
     }
 }

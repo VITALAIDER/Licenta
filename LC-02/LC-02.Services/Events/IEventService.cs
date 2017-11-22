@@ -6,5 +6,7 @@ namespace LC_02.Services.Events
     {
         EventDto AddNewEvent(EventDto eventDto);
         List<EventDto> GetEventsByUserId(int userId);
+        EventDto GetEventById(int eventId);
+        EventDto UpdateEvent(EventDto eventDto);
     }
 }

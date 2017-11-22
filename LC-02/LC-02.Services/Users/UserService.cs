@@ -24,7 +24,7 @@ namespace LC_02.Services.Users
             this.unitOfWork = unitOfWork;
         }
 
-        private EventDto EntityEventToDto(Event eventEntity)
+        private EventDto ConvertEventFromEntityToDto(Event eventEntity)
         {
             //logic for EventDto
             var eventDto = new EventDto();
@@ -44,7 +44,7 @@ namespace LC_02.Services.Users
 
             return eventDto;
         }
-        private UserDto EntityToDto(User user)
+        private UserDto ConvertUserFromEntityToDto(User user)
         {
             var userDto = new UserDto
             {
@@ -61,13 +61,13 @@ namespace LC_02.Services.Users
             {
                 foreach (var eventEntity in user.Events)
                 {
-                    userDto.Events.Add(EntityEventToDto(eventEntity));
+                    userDto.Events.Add(ConvertEventFromEntityToDto(eventEntity));
                 }
             }
             return userDto;
         }
 
-        private User DtoToEntity(UserDto userDto)
+        private User ConvertUserFromDtoToEntity(UserDto userDto)
         {
             var userEntity = new User
             {
@@ -83,14 +83,14 @@ namespace LC_02.Services.Users
         }
         public UserDto AddNewUser(UserDto userDto)
         {
-            var user = DtoToEntity(userDto);
+            var user = ConvertUserFromDtoToEntity(userDto);
             var md5Hash = MD5.Create();
             user.Password = GetMd5Hash(md5Hash, userDto.Password);
             userRepository.Add(user);
 
             unitOfWork.Commit();
 
-            return EntityToDto(user);
+            return ConvertUserFromEntityToDto(user);
         }
         public UserDto LoginStudent(string username, string password)
         {
@@ -102,7 +102,7 @@ namespace LC_02.Services.Users
             var passwordMatch = VerifyMd5Hash(md5Hash, password, user.Password);
             if (!passwordMatch) return null;
 
-            return EntityToDto(user);
+            return ConvertUserFromEntityToDto(user);
 
         }
 
@@ -110,7 +110,7 @@ namespace LC_02.Services.Users
         {
             var user = userRepository.Query().FirstOrDefault(x => x.Username == username);
             if (user == null) return null;
-            return EntityToDto(user);
+            return ConvertUserFromEntityToDto(user);
         }
 
         public static string GetMd5Hash(MD5 md5Hash, string input)
