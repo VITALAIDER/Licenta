@@ -8,5 +8,8 @@ namespace LC_02.Services.Events
         List<EventDto> GetEventsByUserId(int userId);
         EventDto GetEventById(int eventId);
         EventDto UpdateEvent(EventDto eventDto);
+        void DeleteEvent(int eventId);
+        List<EventDto> GetEventsByEventCategory(int eventCategory);
+        List<EventDto> GetPlacesByPlaceCategory(int placeCategory);
     }
 }

@@ -114,6 +114,38 @@ namespace LC_02.Services.Events
             return ConvertEventFromEntityToDto(entity);
         }
 
-        
+        public void DeleteEvent(int eventId)
+        {
+            var eventEntity = eventRepository.Query(x => x.EventId == eventId).FirstOrDefault();
+            eventRepository.Delete(eventEntity);
+            unitOfWork.Commit();
+        }
+
+        public List<EventDto> GetEventsByEventCategory(int eventCategory)
+        {
+            
+            var listOfEvents = eventRepository.Query(x => x.EventCategoryName == eventCategory);
+            if (listOfEvents == null) return null;
+
+            var listOfEventsDto = new List<EventDto>();
+            foreach (var eventEntity in listOfEvents)
+            {
+                listOfEventsDto.Add(ConvertEventFromEntityToDto(eventEntity));
+            }
+            return listOfEventsDto;
+        }
+        public List<EventDto> GetPlacesByPlaceCategory(int placeCategory)
+        {
+
+            var listOfEvents = eventRepository.Query(x => x.PlaceCategoryName == placeCategory);
+            if (listOfEvents == null) return null;
+
+            var listOfEventsDto = new List<EventDto>();
+            foreach (var eventEntity in listOfEvents)
+            {
+                listOfEventsDto.Add(ConvertEventFromEntityToDto(eventEntity));
+            }
+            return listOfEventsDto;
+        }
     }
 }
