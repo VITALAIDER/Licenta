@@ -113,6 +113,13 @@ namespace LC_02.Services.Users
             return ConvertUserFromEntityToDto(user);
         }
 
+        public UserDto GetUserById(int userId)
+        {
+            var user = userRepository.Query().FirstOrDefault(x => x.UserId == userId);
+            if (user == null) return null;
+            return ConvertUserFromEntityToDto(user);
+        }
+
         public static string GetMd5Hash(MD5 md5Hash, string input)
         {
 

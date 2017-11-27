@@ -38,3 +38,4 @@ E:\GitHub\Licenta\Licenta\LC-02\LC-02.Data\obj\Debug\LC-02.Data.csprojResolveAss
 E:\GitHub\Licenta\Licenta\LC-02\LC-02.Data\obj\Debug\LC_02.Data.Migrations.PlaceCategoryType.resources
 E:\GitHub\Licenta\Licenta\LC-02\LC-02.Data\obj\Debug\LC_02.Data.Migrations.EventCategoryType.resources
 E:\GitHub\Licenta\Licenta\LC-02\LC-02.Data\obj\Debug\LC_02.Data.Migrations.EventTypeToInt.resources
+E:\GitHub\Licenta\Licenta\LC-02\LC-02.Data\obj\Debug\LC_02.Data.Migrations.AddImageUrlToUser.resources

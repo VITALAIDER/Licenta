@@ -30,6 +30,8 @@ namespace LC_02.Data.Entities
         public string PhoneNumber { get; set; }
         //for organizer
         public float? Rank { get; set; }
+        public string ImageUrl { get; set; }
         public List<Event> Events { get; set; }
+
     }
 }

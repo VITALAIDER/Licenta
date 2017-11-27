@@ -112,6 +112,10 @@
     <Compile Include="Migrations\201711211857239_EventTypeToInt.Designer.cs">
       <DependentUpon>201711211857239_EventTypeToInt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711241547032_AddImageUrlToUser.cs" />
+    <Compile Include="Migrations\201711241547032_AddImageUrlToUser.Designer.cs">
+      <DependentUpon>201711241547032_AddImageUrlToUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -149,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711211857239_EventTypeToInt.resx">
       <DependentUpon>201711211857239_EventTypeToInt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711241547032_AddImageUrlToUser.resx">
+      <DependentUpon>201711241547032_AddImageUrlToUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
